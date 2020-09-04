@@ -1,0 +1,33 @@
+<header class="header">
+    <nav>
+        <span class="logo">🤖 ROBOTSS</span>
+        <ul>
+            <li><a href="#feed">Feed</a></li>
+            <li><a href="#config">Manage</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+  <div id="feed"></div>
+  <section class="feeds">
+  </section>
+  <hr>
+  <div id="config"></div>
+  <section>
+    <h2>Toggle Feeds</h2><br>
+    <div class="feed-list"></div>
+  </section>
+  <hr>
+  <section>
+    <h2>Add Feed</h2>
+    <div class="add-feed"></div>
+  </section>
+  <hr>
+  <section>
+    <h2>Settings</h2>
+    <div class="settings"></div>
+  </section>
+</main>
+<footer>
+  <center>&#169; Robert Page Easley</center>
+</footer>
