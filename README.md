@@ -12,7 +12,7 @@ Mostly a rush job, I wrote this for myself when the RSS reader I used went full-
 
 ## To use
 Go to the phenomenal service [rss2json](https://rss2json.com/plans) and signup for a free account. When you load the demo input your API key. The page should load after that.
-[Demo - requires api key](http://google.com)
+[Demo - requires api key](https://robertpage.github.io/robotss/)
 
 ## To Run locally
 npm install
