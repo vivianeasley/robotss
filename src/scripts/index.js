@@ -58,11 +58,11 @@ async function init (data) {
     }
     const timeInMill = Date.now();
     const urlsArr = await generateUrlArray(timeInMill, feeds);
-
+    const hash = getHash(5);
     if (urlsArr && urlsArr.length > 0) {
         console.log("Requested new feeds")
         const dataObj = await Promise.all(urlsArr.map(url =>
-            fetch(rss2JsonUrl+"?rss_url="+url+"&api_key="+data).then(resp => resp.json())
+            fetch(rss2JsonUrl+"?rss_url="+url+"&api_key="+data+"&cache_bust="+hash).then(resp => resp.json())
         )).then(allJson => {
            if (allJson.status === "error" && ga) {
               ga('send', {
@@ -98,6 +98,16 @@ function attachScrollToLogo () {
 function generateId (uri) {
   const identifier = decodeURIComponent(uri);
   return identifier.replace(/[^a-zA-Z ]/g, "")
+}
+
+function getHash(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
 }
 
 function updateFeeds(newData, oldData) {
