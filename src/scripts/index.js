@@ -113,10 +113,13 @@ function getHash(length) {
 function updateFeeds(newData, oldData) {
     return new Promise((resolve, reject) => {
       for (var i = 0; i < newData.length; i++) {
-        const id = generateId(newData[i].feed.url);
-        if (oldData[id]) {
-          oldData[id] = {...oldData[id], ...newData[i]}
+        if (newData[i] && newData[i].feed && newData[i].feed.url) {
+          const id = generateId(newData[i].feed.url);
+          if (oldData[id]) {
+            oldData[id] = {...oldData[id], ...newData[i]}
+          }
         }
+
       }
       resolve();
     })
